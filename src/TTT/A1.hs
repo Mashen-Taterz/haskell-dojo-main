@@ -33,10 +33,10 @@ data GameState = XWon | OWon | TieGame | InProgress deriving (Show , Eq)
 
 -- Q#08
 type Player = Square 
-type Row = [Square]
-type Line = [Square]
-type Board = [Row]
-type Move = (Int, Int)
+type Row    = [Square]
+type Line   = [Square]
+type Board  = [Row]
+type Move   = (Int, Int)
 
 -- Q#09
 
@@ -49,12 +49,16 @@ getFirstPlayer isFirstPlayer =
 getFirstPlayer_ :: Bool -> Player
 getFirstPlayer_ firstPlayer 
     | firstPlayer = X
-    | otherwise = O
+    | otherwise   = O
 
 
 -- Q#10
-
-showGameState = undefined
+showGameState :: GameState -> String 
+showGameState state = case state of 
+    XWon       -> "X is the Winner!"
+    OWon       -> "O is the Winner!"
+    TieGame    -> "Tie game!"
+    InProgress -> "The game is still going!"
 
 -- Q#11
 
