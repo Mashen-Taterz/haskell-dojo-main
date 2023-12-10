@@ -40,9 +40,17 @@ type Move = (Int, Int)
 
 -- Q#09
 
-getFirstPlayer = undefined
+getFirstPlayer :: Bool -> Player 
+getFirstPlayer isFirstPlayer = 
+    if isFirstPlayer 
+        then X 
+        else O
 
-getFirstPlayer_ = undefined
+getFirstPlayer_ :: Bool -> Player
+getFirstPlayer_ firstPlayer 
+    | firstPlayer = X
+    | otherwise = O
+
 
 -- Q#10
 
