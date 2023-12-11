@@ -29,7 +29,11 @@ data Square = X | O | Empty deriving (Show , Eq)
 
 -- Q#07
 
-data GameState = XWon | OWon | TieGame | InProgress deriving (Show , Eq)
+data GameState = XWon 
+    | OWon 
+    | TieGame 
+    | InProgress 
+    deriving (Show , Eq)
 
 -- Q#08
 type Player = Square 
@@ -61,9 +65,14 @@ showGameState state = case state of
     InProgress -> "The game is still going!"
 
 -- Q#11
-
-switchPlayer = undefined
+switchPlayer :: Player -> Player
+switchPlayer X     = O
+switchPlayer O     = X
+switchPlayer Empty = Empty
 
 -- Q#12
-
-showSquare = undefined
+showSquare :: Square -> String  
+showSquare square
+    | square == X     = "X"
+    | square == O     = "O"
+    | square == Empty = "_"
