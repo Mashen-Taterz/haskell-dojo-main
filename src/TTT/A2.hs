@@ -4,9 +4,9 @@ import Data.List (intercalate)
 import TTT.A1
 
 -- Q#01
-
-promptPlayer = undefined
-
+promptPlayer :: Player -> String 
+promptPlayer player = 
+    concat ["Player ", show player, "'s turn: enter a row and column position."]
 -- Q#02
 
 _RANGE_ = undefined
