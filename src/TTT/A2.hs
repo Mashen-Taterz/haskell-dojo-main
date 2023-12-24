@@ -32,10 +32,15 @@ _EMPTY_BOARD_:: [[Square]]
 _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_ 
 
 -- Q#05
+isTied :: Board -> Bool
+isTied board = Empty `notElem` concat board    
 
-isTied = undefined
-
-_TIED_BOARD_ = undefined
+_TIED_BOARD_ :: Board 
+_TIED_BOARD_ = [
+    [X, O, O]
+  , [O, X, X]
+  , [O, X, O]
+  ]
 
 -- Q#06
 
