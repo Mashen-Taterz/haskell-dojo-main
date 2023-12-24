@@ -3,6 +3,8 @@ module TTT.A2 where
 import Data.List (intercalate)
 import TTT.A1
 import Data.Char (digitToInt)
+import Control.Applicative (Alternative(empty))
+import Data.Foldable (Foldable(toList))
 
 -- Q#01
 promptPlayer :: Player -> String 
@@ -23,10 +25,11 @@ readDigit digit
     | otherwise = -1
 
 -- Q#04
+_EMPTY_ROW_ :: [Square]
+_EMPTY_ROW_ = replicate _SIZE_ Empty 
 
-_EMPTY_ROW_ = undefined
-
-_EMPTY_BOARD_ = undefined
+_EMPTY_BOARD_:: [[Square]]
+_EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_ 
 
 -- Q#05
 
