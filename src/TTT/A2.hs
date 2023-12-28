@@ -43,8 +43,9 @@ _TIED_BOARD_ = [
   ]
 
 -- Q#06
-
-indexRowStrings = undefined
+indexRowStrings :: [String] -> [(Char, String)]
+indexRowStrings strings = zip ['A' ..] strings 
+ 
 
 -- Q#07
 
