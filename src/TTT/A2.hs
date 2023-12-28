@@ -48,8 +48,8 @@ indexRowStrings strings = zip ['A' ..] strings
  
 
 -- Q#07
-
-formatLine = undefined
+formatLine :: [String] -> String
+formatLine line = _SEP_ ++ intercalate _SEP_ line ++ _SEP_
 
 -- Q#08
 
