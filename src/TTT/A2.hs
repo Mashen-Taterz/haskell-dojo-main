@@ -52,8 +52,11 @@ formatLine :: [String] -> String
 formatLine line = _SEP_ ++ intercalate _SEP_ line ++ _SEP_
 
 -- Q#08
-
-isMoveInBounds = undefined
+isMoveInBounds :: Move -> Bool
+isMoveInBounds (row , col) =
+    inBounds row && inBounds col
+    where 
+        inBounds index = index >= 0 && index < _SIZE_
 
 -- Q#09
 
