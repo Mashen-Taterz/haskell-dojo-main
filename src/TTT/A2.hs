@@ -2,7 +2,7 @@ module TTT.A2 where
 
 import Data.List (intercalate)
 import TTT.A1
-import Data.Char (digitToInt)
+import Data.Char (digitToInt, readLitChar)
 import Control.Applicative (Alternative(empty))
 import Data.Foldable (Foldable(toList))
 
@@ -22,7 +22,7 @@ isDigit digit = digit `elem` ['0' .. '9']
 readDigit :: Char -> Int
 readDigit digit
     | isDigit digit = read [digit] :: Int 
-    | otherwise = -1
+    | otherwise     = -1
 
 -- Q#04
 _EMPTY_ROW_ :: [Square]
@@ -59,8 +59,13 @@ isMoveInBounds (row , col) =
         inBounds index = index >= 0 && index < _SIZE_
 
 -- Q#09
-
-stringToMove = undefined
+stringToMove :: String -> Move
+stringToMove input
+    | length input == 2 = convert input
+    | otherwise         = _INVALID_MOVE_
+        where
+            convert [row, col] = (convertRowIndex row, readDigit col)
+            convert _          = _INVALID_MOVE_
 
 -- Q#10
 
