@@ -65,8 +65,21 @@ stringToMove input
     | otherwise         = _INVALID_MOVE_
         where
             convert [row, col] = (convertRowIndex row, readDigit col)
-            convert _          = _INVALID_MOVE_
+            convert          _ = _INVALID_MOVE_
 
 -- Q#10
+replaceSquareInRow :: Player -> Int -> Row -> Row
+replaceSquareInRow player col row =
+  let (before, after) = splitAt col row
+      newSegment      = if col < 0 || col >= length row then after else replaceElement player after
+  in before ++ newSegment
 
-replaceSquareInRow = undefined
+replaceElement :: Player -> Row -> Row
+replaceElement          _ [] = []
+replaceElement player (_:xs) = player : xs
+
+rsX :: Int -> Row -> Row
+rsX = replaceSquareInRow X
+
+rsO :: Int -> Row -> Row
+rsO = replaceSquareInRow O
