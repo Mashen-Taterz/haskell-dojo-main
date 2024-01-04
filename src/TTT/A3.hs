@@ -18,8 +18,9 @@ showSquares []       = []
 showSquares (x : xs) = showSquare x : showSquares xs 
 
 -- Q#03
-
-formatRows = undefined
+formatRows :: [Row] -> [String] 
+formatRows []       = []
+formatRows (x : xs) = formatLine (showSquares x) : formatRows xs 
 
 -- Q#04
 
