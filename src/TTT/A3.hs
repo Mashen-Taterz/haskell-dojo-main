@@ -13,8 +13,9 @@ showInts (x : xs) = show x : showInts xs
 _HEADER_ = ' ' : formatLine (showInts _RANGE_)
 
 -- Q#02
-
-showSquares = undefined
+showSquares :: [Square] -> [String] 
+showSquares []       = []
+showSquares (x : xs) = showSquare x : showSquares xs 
 
 -- Q#03
 
