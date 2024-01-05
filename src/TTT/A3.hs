@@ -23,8 +23,10 @@ formatRows []       = []
 formatRows (x : xs) = formatLine (showSquares x) : formatRows xs 
 
 -- Q#04
-
-isColEmpty = undefined
+isColEmpty :: Row -> Int -> Bool
+isColEmpty [] _ = False
+isColEmpty (x:_) 0 = x == Empty 
+isColEmpty (_:xs) col = isColEmpty xs (col -1)
 
 -- Q#05
 
