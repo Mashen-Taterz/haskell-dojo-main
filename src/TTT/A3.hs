@@ -24,15 +24,26 @@ formatRows (x : xs) = formatLine (showSquares x) : formatRows xs
 
 -- Q#04
 isColEmpty :: Row -> Int -> Bool
-isColEmpty [] _ = False
-isColEmpty (x:_) 0 = x == Empty 
+isColEmpty [] _       = False
+isColEmpty (x:_) 0    = x == Empty 
 isColEmpty (_:xs) col = isColEmpty xs (col -1)
 
 -- Q#05
+dropFirstCol :: Board -> Board
+dropFirstCol []    = []
+dropFirstCol board = map dropFirst board
 
-dropFirstCol = undefined
+dropFirst :: Row -> Row
+dropFirst []     = []
+dropFirst (_:xs) = xs
 
-dropLastCol = undefined
+dropLastCol :: Board -> Board
+dropLastCol []    = []
+dropLastCol board = map dropLast board 
+
+dropLast :: Row -> Row
+dropLast []   = [] 
+dropLast elem = init elem
 
 -- Q#06
 
