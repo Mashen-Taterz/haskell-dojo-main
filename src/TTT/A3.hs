@@ -34,23 +34,30 @@ dropFirstCol []    = []
 dropFirstCol board = map dropFirst board
 
 dropFirst :: Row -> Row
-dropFirst []     = []
-dropFirst (_:xs) = xs
+dropFirst []       = []
+dropFirst (_ : xs) = xs
 
 dropLastCol :: Board -> Board
 dropLastCol []    = []
 dropLastCol board = map dropLast board 
 
 dropLast :: Row -> Row
-dropLast []   = [] 
-dropLast elem = init elem
+dropLast []  = [] 
+dropLast row = init row
 
 -- Q#06
+getDiag1 :: Board -> Line
+getDiag1 []              = []
+getDiag1 ([] : _)        = []
+getDiag1 ((x : _): rows) = x : getDiag1 (map tail rows) 
 
-getDiag1 = undefined
+getDiag2 :: Board -> Line
+getDiag2 []       = []
+getDiag2 ([] : _) = []
+getDiag2 rows     = reverse (getDiag1 (reverse rows))
 
-getDiag2 = undefined
 
+getAllLines :: Board -> [Line]
 getAllLines = undefined
 
 -- Q#07
