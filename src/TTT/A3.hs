@@ -56,9 +56,8 @@ getDiag2 []       = []
 getDiag2 ([] : _) = []
 getDiag2 rows     = reverse (getDiag1 (reverse rows))
 
-
 getAllLines :: Board -> [Line]
-getAllLines = undefined
+getAllLines board = concat [board, transpose board, [getDiag1 board, getDiag2 board]]
 
 -- Q#07
 
