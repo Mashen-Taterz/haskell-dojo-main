@@ -3,6 +3,7 @@ module TTT.A3 where
 import Data.List (transpose)
 import TTT.A1
 import TTT.A2
+import Data.List.NonEmpty (prependList)
 
 -- Q#01
 showInts :: [Int] -> [String]
@@ -67,8 +68,14 @@ putSquare player (row:rows) (moveRow, moveCol)
     | otherwise = row : putSquare player rows (moveRow - 1, moveCol)
 
 -- Q#08
+prependRowIndices :: [String] -> [String]
+prependRowIndices inputList = worker (indexRowStrings inputList)
+    where
+        worker :: [(Char, String)] -> [String]
+        worker [] = []
+        worker ((indexChar, str) : pairs) =
+            (indexChar : str) : worker pairs 
 
-prependRowIndices = undefined
 
 -- Q#09
 
