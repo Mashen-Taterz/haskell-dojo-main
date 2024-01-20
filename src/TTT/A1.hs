@@ -25,7 +25,7 @@ _SEP_ = "_|_"
 
 -- Q#06
 
-data Square = X | O | Empty deriving (Show , Eq)
+data Square = X | O | E deriving (Show , Eq)
 
 -- Q#07
 
@@ -68,11 +68,11 @@ showGameState state = case state of
 switchPlayer :: Player -> Player
 switchPlayer X     = O
 switchPlayer O     = X
-switchPlayer Empty = Empty
+switchPlayer E     = E
 
 -- Q#12
 showSquare :: Square -> String  
 showSquare square
     | square == X     = "X"
     | square == O     = "O"
-    | square == Empty = "_"
+    | square == E     = "_"

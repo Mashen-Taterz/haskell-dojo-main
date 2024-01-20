@@ -26,14 +26,14 @@ readDigit digit
 
 -- Q#04
 _EMPTY_ROW_ :: [Square]
-_EMPTY_ROW_ = replicate _SIZE_ Empty 
+_EMPTY_ROW_ = replicate _SIZE_ E
 
 _EMPTY_BOARD_:: [[Square]]
 _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_ 
 
 -- Q#05
 isTied :: Board -> Bool
-isTied board = Empty `notElem` concat board    
+isTied board = E `notElem` concat board    
 
 _TIED_BOARD_ :: Board 
 _TIED_BOARD_ = [

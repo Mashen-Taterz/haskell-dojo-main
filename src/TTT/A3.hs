@@ -25,7 +25,7 @@ formatRows (x : xs) = formatLine (showSquares x) : formatRows xs
 -- Q#04
 isColEmpty :: Row -> Int -> Bool
 isColEmpty [] _       = False
-isColEmpty (x:_) 0    = x == Empty 
+isColEmpty (x:_) 0    = x == E 
 isColEmpty (_:xs) col = isColEmpty xs (col -1)
 
 -- Q#05
@@ -60,8 +60,11 @@ getAllLines :: Board -> [Line]
 getAllLines board = concat [board, transpose board, [getDiag1 board, getDiag2 board]]
 
 -- Q#07
-
-putSquare = undefined
+putSquare :: Player -> Board -> Move -> Board
+putSquare _ [] _ = []
+putSquare player (row:rows) (moveRow, moveCol)
+    | moveRow == 0 = replaceSquareInRow player moveCol row : rows
+    | otherwise = row : putSquare player rows (moveRow - 1, moveCol)
 
 -- Q#08
 
